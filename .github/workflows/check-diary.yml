@@ -15,9 +15,9 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
       - name: Get Latest Diary
-        run: go run get-latest-diary >> $GITHUB_ENV
+        run: go run get-latest-diary/get-latest-diary.go >> $GITHUB_ENV
       - name: Check Updated Diary
-        run: go run get-latest-diary check >> $GITHUB_ENV
+        run: go run get-latest-diary/get-latest-diary.go check >> $GITHUB_ENV
       - name: Notify To Slack
         if: ${{ env.DIARY_UPDATED != 'true' }}
         uses: slackapi/slack-github-action@v1.16.0
