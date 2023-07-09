@@ -18,6 +18,8 @@ jobs:
         run: go run get-latest-diary/get-latest-diary.go >> $GITHUB_ENV
       - name: Check Updated Diary
         run: go run get-latest-diary/get-latest-diary.go check >> $GITHUB_ENV
+      - name: Echo environemts
+        run: echo "date ${{ env.DIARY_LATEST_DATE }} | Updated ${{ env.DIARY_UPDATED }}" 
       - name: Notify To Slack
         if: ${{ env.DIARY_UPDATED != 'true' }}
         uses: slackapi/slack-github-action@v1.16.0
