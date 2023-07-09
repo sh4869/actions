@@ -3,6 +3,9 @@ name: "check diary updated"
 on:
   schedule:
     - cron: "0 19 * * *"
+  push:
+    branches:
+      - master
 
 jobs:
   check_diary_update:
